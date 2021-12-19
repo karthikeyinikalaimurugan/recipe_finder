@@ -1,6 +1,6 @@
 # Recipe Finder
 
-This project was built with <b>React</b> with complete responsiveness across multiple screens.
+This project <b>Recipe Finder</b> is built with <b>React</b> with complete responsiveness across multiple screens. Users can able to search and filter recipe through recipe finder app.
 
 ## Running the Project
 
@@ -78,7 +78,7 @@ Your app is ready to be deployed!
  |   |
  |   |- App.css             // Common CSS Styles Of Entire App
  |   |- App.js              // Root App Component Assembling All Other Components
- |   |- Data.css            // Entire Data Required For The App
+ |   |- Data.js            // Entire Data Required For The App
  |   |- index.js            // Starting Point of the App
  |   |- reportWebVitals.css // Determines App Performance
  |- .gitignore              // ignore node_modules and builds to github

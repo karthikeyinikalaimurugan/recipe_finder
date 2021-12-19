@@ -1,0 +1,25 @@
+.gridContainer{
+    display: grid;
+    grid-gap: 32px;
+    padding:40px 0;
+    grid-template-columns: 30% 30% 30%;
+}
+.notFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    font-weight: bold;
+    font-size: 24px;
+}
+@media screen and (max-width:767px) {
+    .gridContainer{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .gridContainer{
+        grid-template-columns: 100%;
+    }
+}

@@ -1,0 +1,20 @@
+.main{
+    display: flex;
+    flex-flow: row wrap;
+    padding:8px;
+}
+.main > div{
+    padding:8px;
+}
+.leftSection{
+    flex:1;
+}
+.rightSection{
+    flex:3;
+}
+@media screen and (max-width:767px) {
+    .leftSection{
+        display: none;
+    }
+}
+  

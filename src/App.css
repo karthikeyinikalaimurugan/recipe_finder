@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background-color: #ffffff;
+  background-image: url('./../public/img/bg.jpeg');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.seperator{
+  margin:auto;
+  border-top:#ccc;
+}
+.App{
+  background-color: white;
+}
+@media screen and (min-width:1025px) {
+  body{
+    padding: 100px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .container{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}

@@ -1,0 +1,44 @@
+.strips{
+    background-color:#000;
+    color:rgb(185, 184, 184);
+    font-size: 0.8rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding:4px;
+}
+.menus{
+    flex:4;
+    display:flex;
+    font-size: inherit;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.menu{
+    margin:4px 0;
+    font-size: inherit;
+    text-decoration: none;
+    color: inherit;
+    padding: 0 8px;
+}
+.actions{
+    flex:1;
+    display: flex;
+    justify-content: space-evenly;
+}
+.actions > button{
+    font-size: inherit;
+    background-color: transparent;
+    color:inherit;
+    border:none;
+    box-shadow: none;
+}
+.actions > button:hover, .menu:hover{
+    cursor: pointer;
+    color: white;
+}
+.actions > button> span{
+    text-transform: capitalize;
+    margin: 0 8px;
+}

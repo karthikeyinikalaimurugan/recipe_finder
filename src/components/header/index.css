@@ -1,0 +1,58 @@
+.header{
+  display: flex;
+  padding:16px 0;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+.header > div{
+  padding: 8px 0;
+}
+.logo{
+  width:180px;
+}
+.logoWrapper{
+  flex:2;
+}
+.searchBarWrapper{
+  flex:4;
+  text-align: center;
+}
+.actionsWrapper{
+  flex:2;
+  display:  flex;
+  justify-content: space-evenly;
+}
+.actionsWrapper > button{
+  padding:8px;
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: none;
+}
+.actionsWrapper > button > span{
+  margin-left:8px;
+}
+@media screen and (max-width:767px) {
+  .header{
+    justify-content: flex-start;
+    flex-flow: row wrap;
+  }
+  .logo{
+    width:100px;
+  }
+  .logoWrapper{
+    text-align: left;
+    order:1;
+    flex: 1;
+  }
+  .searchBarWrapper{
+    order:3;
+    flex:unset;
+    width:100%;
+  }
+  .actionsWrapper{
+    order:2;
+    flex:2;
+  }
+}

@@ -15,11 +15,14 @@ function App() {
   const [filters, setFilters] = useState(appData.filters);
   const [productsList,setProductList] = useState(allProducts);
   const [filteredProduct,setFilteredProduct] = useState([]);
-  let urlSearchParams,params;
+  const [params,setParams] = useState({});
 
-  const updateResults = ()=>{
-    urlSearchParams = new URLSearchParams(window.location.search);
-    params = Object.fromEntries(urlSearchParams.entries());
+  useEffect(()=>{
+    let urlSearchParams = new URLSearchParams(window.location.search);
+    setParams(Object.fromEntries(urlSearchParams.entries()));
+  },[])
+
+  useEffect(()=>{
     if(params.category) setFilters({[params.category]: appData.filters[params.category]});
     let allFilters = Object.keys(appData.filters);
     let appliedfilters = {},queries=[];
@@ -43,11 +46,7 @@ function App() {
       
       return (filterCat.length ? (isMatching===queries.length) && filteredResult.length : (isMatching===queries.length));
     }) : allProducts);
-  };
-
-  useEffect(()=>{
-    updateResults();
-  });
+  },[params]);
 
   const updateProducts= ({isFilter,selectedFilters,category,searchTxt,localFilter})=>{
     if(localFilter && searchTxt.length){
@@ -55,35 +54,36 @@ function App() {
     }else{
       setFilteredProduct([]);
       let query='?';
-      urlSearchParams = new URLSearchParams(window.location.search);
-      params = Object.fromEntries(urlSearchParams.entries());
       if(!isFilter){
-        params = {
+        let updatedParam = {
           category,
           search:searchTxt
-        }
-        Object.keys(params).map((e,i)=>params[e] ? query+=`${query.length>1?'&':''}${e}=${params[e]}` : '');
+        };
+        Object.keys(updatedParam).map((e,i)=>updatedParam[e] ? query+=`${query.length>1?'&':''}${e}=${updatedParam[e]}` : '');
         window.history.pushState('', '', query);
         setFilters(category ? {
           [category]: appData.filters[category]
         }:appData.filters);
+        console.log(updatedParam);
+        setParams(updatedParam);
       }else{
         let sort = {};
+        let urlSearchParams = new URLSearchParams(window.location.search);
         Object.keys(selectedFilters).forEach(s=>{
           if(selectedFilters[s]) sort = {
             ...sort,
             [s]:selectedFilters[s].join(',')
           }
         });
-        params = {
-          ...params,
+        let updatedParam = {
+          ...Object.fromEntries(urlSearchParams.entries()),
           ...sort
-        }
-        Object.keys(params).map((e,i)=>params[e] ? query+=`${query.length>1?'&':''}${e}=${params[e]}` : '');
+        };
+        Object.keys(updatedParam).map((e,i)=>updatedParam[e] ? query+=`${query.length>1?'&':''}${e}=${updatedParam[e]}` : '');
         window.history.pushState('', '', query);
         if(!category) setFilters(appData.filters);
+        setParams(updatedParam);
       }
-      updateResults();
     }
   }
 

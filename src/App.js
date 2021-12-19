@@ -47,7 +47,7 @@ function App() {
 
   useEffect(()=>{
     updateResults();
-  },[]);
+  });
 
   const updateProducts= ({isFilter,selectedFilters,category,searchTxt,localFilter})=>{
     if(localFilter && searchTxt.length){

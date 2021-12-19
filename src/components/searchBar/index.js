@@ -11,7 +11,7 @@ const Searchbar = ({categories=[],btnClass="searchBtn",placeHolder='Search recip
       if(params.category) setCategory(params.category);
       if(params.search) setSearchTxt(params.search);
     }
-  },[]);
+  },[categories]);
 
   return (
       <div className="searchbar">

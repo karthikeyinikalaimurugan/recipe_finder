@@ -10,14 +10,14 @@ const Side = ({filters={},onUpdateFilter=()=>{}}) => {
     useEffect(()=>{
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
-        let filters = {};
+        let updatedfilters = {};
         Object.keys(params).forEach(filter=>{
-            if(allFilters.includes(filter)){
-                filters= {...filters,[filter]:params[filter].split(',')};
+            if(Object.keys(filters).includes(filter)){
+                updatedfilters= {...updatedfilters,[filter]:params[filter].split(',')};
             }
         });
-        setFilterData(filters);
-    },[window.location.search]);
+        setFilterData(updatedfilters);
+    },[filters]);
 
     const updateFilter = (e,filter,options)=>{
         if(e.target.checked){

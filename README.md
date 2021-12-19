@@ -2,6 +2,8 @@
 
 This project <b>Recipe Finder</b> is built with <b>React</b> with complete responsiveness across multiple screens. Users can able to search and filter recipe through recipe finder app.
 
+## Demo: https://recipe-finder-jade.vercel.app/
+
 ## Running the Project
 
 In the project directory, you can run:
